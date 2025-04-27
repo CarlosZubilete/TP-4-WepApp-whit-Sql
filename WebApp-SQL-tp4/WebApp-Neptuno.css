@@ -1,0 +1,74 @@
+﻿.form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 600px;
+    margin: 30px auto;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
+
+h1, h3 {
+    text-align: center;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+span {
+    display: inline-block;
+    width: 120px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"], select {
+    width: 150px;
+    padding: 5px;
+    margin-left: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.buttons {
+    text-align: center;
+    margin-top: 15px;
+}
+ 
+.buttons asp\:button {
+    margin: 5px;
+}
+
+#lblShow {
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+    font-style: italic;
+    color: #666;
+}
+
+#gvProducts {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#gvProducts th, #gvProducts td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#gvProducts th {
+    background-color: #007bff;
+    color: white;
+}
+
+#gvProducts tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#gvProducts tr:hover {
+    background-color: #ddd;
+}

@@ -30,20 +30,11 @@ namespace WebApp_SQL_tp4
       if (!IsPostBack)
       {
         CargarProductos(sqlConsulta); 
-      }
-      
+      }  
     }
 
-    private const string where = " Where ";
-    protected void ddlIdProduct_SelectedIndexChanged(object sender, EventArgs e)
-    {
-      //txtIdProduct.Text = ddlIdProduct.SelectedItem.ToString();
-      //txtIdProduct.Text = ddlIdProduct.SelectedValue.ToString();
-      // int ddlValue = Convert.ToInt32(ddlIdProduct.SelectedValue.ToString());
-      //string consulta = this.getSqlConsulta(ddlValue, txtIdProduct.Text);
-    }
 
-    protected string getSqlConsulta(int operadorRacional)
+    protected string getOperadorRacional(string operadorRacional)
     {
       /*
         0 -> '=' (igual)
@@ -54,41 +45,59 @@ namespace WebApp_SQL_tp4
       string consulta = "";
       switch (operadorRacional)
       {
-        case 0:
-          consulta = " IdProducto = ";
+        case "0":
+          consulta = " = ";
           break;
-        case 1:
-          consulta = " IdProducto > ";
+        case "1":
+          consulta = " > ";
           break;
-        case 2:
-          consulta = " IdProducto < ";
+        case "2":
+          consulta = " < ";
+          break;
+        default:
+          consulta = " ";
           break;
       }
 
       return consulta;
     }
 
-  
+
     protected void btnFilter_Click(object sender, EventArgs e)
     {
-      int ddlValue = Convert.ToInt32(ddlIdProduct.SelectedValue.ToString());
 
-      string sentenciaRacional = this.getSqlConsulta(ddlValue);
+      string filtros = ""; 
 
-      string idProduct = txtIdProduct.Text;
-      string queryIdFiltrado = sqlConsulta + where + sentenciaRacional + idProduct;
-
-      lblShow.Text = queryIdFiltrado; 
-
-      if(txtIdProduct.Text.Trim().Length > 0)
+      if (txtIdProduct.Text.Trim().Length > 0)
       {
-        CargarProductos(queryIdFiltrado);
-      }
-      else
-      {
-        CargarProductos(sqlConsulta);
+        filtros += " IdProducto " + this.getOperadorRacional(ddlIdProduct.SelectedValue.ToString()) + txtIdProduct.Text;
       }
 
+      if (txtIdCategory.Text.Trim().Length > 0)
+      {
+        if (filtros.Length > 0)
+        {
+          filtros += " AND ";
+        }
+        filtros += "IdCategoría" + this.getOperadorRacional(ddlIdCategory.SelectedValue.ToString()) + txtIdCategory.Text;
+      }
+
+      string query = sqlConsulta;
+
+      if (filtros.Length > 0)
+        query += " WHERE " + filtros;
+
+      lblShow.Text = filtros;
+      CargarProductos(query);
+
+    }
+
+    protected void btnCleanFilter_Click(object sender, EventArgs e)
+    {
+      txtIdCategory.Text = string.Empty;
+      txtIdProduct.Text = string.Empty;
+      lblShow.Text = String.Empty; 
+      CargarProductos(sqlConsulta);
     }
   }
 }
@@ -105,4 +114,55 @@ namespace WebApp_SQL_tp4
   gvProducts.DataBind();
 
   sqlConnection.Close();
+*/
+
+/*
+  string operadorIdProducto = "";
+  string idProduct = "";
+  string queryIdFiltrado = "";
+
+  string operadorIdCategory = "";
+  string idCategory = "";
+
+  if (txtIdProduct.Text.Trim().Length > 0 && txtIdCategory.Text.Trim().Length > 0)
+  {
+
+    operadorIdProducto = this.getOperadorRacional(ddlIdProduct.SelectedValue.ToString());
+    idProduct = txtIdProduct.Text;
+
+    operadorIdCategory = this.getOperadorRacional(ddlIdCategory.SelectedValue.ToString());
+    idCategory = txtIdCategory.Text;
+
+    queryIdFiltrado = sqlConsulta + where + " IdProducto " + operadorIdProducto + idProduct + " AND IdCategoría " + operadorIdCategory + idCategory;
+
+    lblShow.Text = queryIdFiltrado;
+
+    //CargarProductos(queryIdFiltrado);
+  }
+  if (txtIdProduct.Text.Trim().Length > 0 && txtIdCategory.Text.Trim().Length == 0)
+  {
+    operadorIdProducto = this.getOperadorRacional(ddlIdProduct.SelectedValue.ToString());
+    idProduct = txtIdProduct.Text;
+
+    queryIdFiltrado = sqlConsulta + where + " IdProducto " + operadorIdProducto + idProduct;
+
+    lblShow.Text = queryIdFiltrado;
+    //CargarProductos(queryIdFiltrado);
+  }
+  if (txtIdProduct.Text.Trim().Length == 0 && txtIdCategory.Text.Trim().Length > 0)
+  {
+    operadorIdCategory = this.getOperadorRacional(ddlIdCategory.SelectedValue.ToString());
+    idCategory = txtIdCategory.Text;
+
+    queryIdFiltrado = sqlConsulta + where + " IdCategoría " + operadorIdCategory + idCategory;
+
+    lblShow.Text = queryIdFiltrado;
+
+    //CargarProductos(queryIdFiltrado);
+  }
+  else
+  {
+    // CargarProductos(sqlConsulta);
+  }
+
 */

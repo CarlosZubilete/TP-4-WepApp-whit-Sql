@@ -51,13 +51,13 @@ namespace WebApp_SQL_tp4
     protected global::System.Web.UI.WebControls.RangeValidator rangeIdProduct;
 
     /// <summary>
-    /// DropDownList1 control.
+    /// ddlIdCategory control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+    protected global::System.Web.UI.WebControls.DropDownList ddlIdCategory;
 
     /// <summary>
     /// txtIdCategory control.
@@ -78,6 +78,15 @@ namespace WebApp_SQL_tp4
     protected global::System.Web.UI.WebControls.RangeValidator rangeIdCategory;
 
     /// <summary>
+    /// lblShow control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label lblShow;
+
+    /// <summary>
     /// btnFilter control.
     /// </summary>
     /// <remarks>
@@ -87,13 +96,13 @@ namespace WebApp_SQL_tp4
     protected global::System.Web.UI.WebControls.Button btnFilter;
 
     /// <summary>
-    /// lblShow control.
+    /// btnCleanFilter control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label lblShow;
+    protected global::System.Web.UI.WebControls.Button btnCleanFilter;
 
     /// <summary>
     /// gvProducts control.
