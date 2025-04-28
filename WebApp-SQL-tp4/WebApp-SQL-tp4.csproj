@@ -68,12 +68,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
+    <Content Include="WebApp-Libreria.aspx" />
     <Content Include="WebApp-Neptuno.aspx" />
     <Content Include="WebApp-Neptuno.css" />
     <Content Include="WebApp-Viajes.aspx" />
+    <Content Include="WebForm-LibrosListado.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebApp-Libreria.aspx.cs">
+      <DependentUpon>WebApp-Libreria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebApp-Libreria.aspx.designer.cs">
+      <DependentUpon>WebApp-Libreria.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebApp-Neptuno.aspx.cs">
       <DependentUpon>WebApp-Neptuno.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -87,6 +96,13 @@
     </Compile>
     <Compile Include="WebApp-Viajes.aspx.designer.cs">
       <DependentUpon>WebApp-Viajes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm-LibrosListado.aspx.cs">
+      <DependentUpon>WebForm-LibrosListado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm-LibrosListado.aspx.designer.cs">
+      <DependentUpon>WebForm-LibrosListado.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
